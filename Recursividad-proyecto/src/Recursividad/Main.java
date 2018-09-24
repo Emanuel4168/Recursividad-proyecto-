@@ -1,10 +1,18 @@
 package Recursividad;
 
-public class Main {
+public class Main 
+{
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+	public static void main(String[] args) 
+	{
+		int[][] matriz=new int[3][2];
+		matriz[0][0]=1;
+		matriz[0][1]=1;
+		matriz[1][0]=1;
+		matriz[1][1]=1;
+		matriz[2][0]=1;
+		matriz[2][1]=1;
+		System.out.println(Recursividad.sumaRenglon(matriz, 2));
 	}
 
 }
