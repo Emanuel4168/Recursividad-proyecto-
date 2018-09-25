@@ -1,5 +1,7 @@
 package Recursividad;
 
+import java.util.Arrays;
+
 public class Main 
 {
 
@@ -12,7 +14,8 @@ public class Main
 		matriz[1][1]=1;
 		matriz[2][0]=1;
 		matriz[2][1]=1;
-		System.out.println(Recursividad.sumaRenglon(matriz, 2));
+		//System.out.println(Recursividad.sumaRenglon(matriz, 2));
+		System.out.println(Arrays.toString(Recursividad.sumaTotalRenglones(matriz,0)));
 	}
 
 }
