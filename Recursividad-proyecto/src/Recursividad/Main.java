@@ -7,15 +7,12 @@ public class Main
 
 	public static void main(String[] args) 
 	{
-		int[][] matriz=new int[3][2];
-		matriz[0][0]=1;
-		matriz[0][1]=1;
-		matriz[1][0]=1;
-		matriz[1][1]=1;
-		matriz[2][0]=1;
-		matriz[2][1]=1;
+		int[][] matriz=new int[4][4];
 		//System.out.println(Recursividad.sumaRenglon(matriz, 2));
-		System.out.println(Arrays.toString(Recursividad.sumaTotalRenglones(matriz,0)));
+		//System.out.println(Arrays.toString(Recursividad.sumaTotalRenglones(matriz,0)));
+		matriz=Recursividad.rellenarMatriz(0, 0, matriz);
+		for(int i=0;i<matriz.length;i++)
+			System.out.println(Arrays.toString(matriz[i]));
 	}
 
 }

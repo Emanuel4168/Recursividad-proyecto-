@@ -19,6 +19,7 @@ public class Recursividad
 	}
 	
 	
+	
 	public static int[] sumaTotalRenglones(int[][] matriz,int renglon)
 	{
 		if(renglon==0)
@@ -31,7 +32,27 @@ public class Recursividad
 	
 	
 	
-	
+	public static int[][] rellenarMatriz(int fila,int columna,int[][] matriz)
+	{
+		if(fila==columna)
+			matriz[fila][columna]=1;
+		else if(fila+columna==matriz.length-1)
+			matriz[fila][columna]=2;
+		else if(fila>columna && fila+columna<matriz.length-1)
+			matriz[fila][columna]=3;
+		else if(fila<columna && fila+columna<matriz.length-1)
+			matriz[fila][columna]=4;
+		else if(columna-fila<0)
+			matriz[fila][columna]=5;
+		else if(columna-fila>0)
+			matriz[fila][columna]=6;
+		if(fila==matriz.length-1 && columna==matriz[matriz.length-1].length-1)
+			return matriz;
+		if(columna==matriz[fila].length-1)
+			return rellenarMatriz(fila+1,0,matriz);
+		else
+			return rellenarMatriz(fila,columna+1,matriz);
+	}
 	
 	
 }
