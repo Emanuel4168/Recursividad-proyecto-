@@ -49,31 +49,24 @@ public class Recursividad
 			if(Integer.parseInt(numero)<30)
 				return UNIDADES[Integer.parseInt(numero)];
 			if (Integer.parseInt(numero)<100)
-				return DECENAS[Integer.parseInt(numero.substring(0,1))]+" y "+UNIDADES[Integer.parseInt(numero.substring(1))];
+				return DECENAS[Integer.parseInt(numero.substring(1,2))-2]+" y "+UNIDADES[Integer.parseInt(numero.substring(2))];
 			if(Integer.parseInt(numero)==100)
 				return "cien";
 			if(Integer.parseInt(numero)<1000);
-			    return CENTENAS[Integer.parseInt(numero.substring(0,1))-1]+getDecenas(numero.substring(1,3));
+			    return (numero.charAt(1)=='0')?CENTENAS[Integer.parseInt(numero.substring(0,1))-1]+UNIDADES[Integer.parseInt(numero.substring(1))]:
+			    	CENTENAS[Integer.parseInt(numero.substring(0,1))-1]+DECENAS[Integer.parseInt(numero.substring(1,2))-2]+" y "+UNIDADES[Integer.parseInt(numero.substring(2))];
 		}
-		if(numero.length()<7)
+		if(Integer.parseInt(numero)<1000000 && Integer.parseInt(numero)>0)
 			return conversorATexto(numero.substring(0,3))+" mil "+conversorATexto(numero.substring(3));
-		else if(numero.charAt(0)=='1')
+		else if(Integer.parseInt(numero)<2000000 && numero.charAt(2)=='1')
 			return conversorATexto(numero.substring(0,3))+" millon "+conversorATexto(numero.substring(3));
-		if(Integer.parseInt(numero)<1000000000)
+		else if(Integer.parseInt(numero)>0)
 			return conversorATexto(numero.substring(0,3))+" millones "+conversorATexto(numero.substring(3));
 		return "";
 	}
 	
 	
-	//Métodos auxiliares
-	private static String getDecenas(String numero)
-	{
-		if(numero.charAt(0)=='0')
-			return DECENAS[Integer.parseInt(numero.substring(0,1))]+UNIDADES[Integer.parseInt(numero.substring(1))];
-		return DECENAS[Integer.parseInt(numero.substring(0,1))-2]+" y "+UNIDADES[Integer.parseInt(numero.substring(1))];
-	}
-	
-	
+	//Métodos auxiliares	
 	private static void recorrerFila(int fila,int columna,int[][] matriz)
 	{
 		if(fila==columna)
